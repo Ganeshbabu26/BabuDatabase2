@@ -13,8 +13,10 @@ app.post("/submit", (req, res) =>
     console.log("Received data:", req.body); // 👈 NEW
     const sql = "INSERT INTO StudentDetails(Name, Password, Email, Department, City) VALUES (?, ?, ?, ?, ?)";
     
-    db.query(sql, [Name, Password, Email, Department, City], (err, result) => {
-        if (err) {
+    db.query(sql, [Name, Password, Email, Department, City], (err, result) => 
+    {
+        if (err) 
+        {
             console.error("Insert error:", err); // 👈 NEW
             return res.status(500).json({ error: err.message });
         }
